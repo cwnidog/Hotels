@@ -20,12 +20,17 @@
 {
   [super viewDidLoad];
   NSLog(@"Number of rooms handed in %lu", (unsigned long)self.rooms.count);
+  
+  // we're our own datasource
   self.tableView.dataSource = self;
   
+  // refresh the disolayed data to show updates
   [self.tableView reloadData];
   
 } // viewDidLoad
 
+
+// how many rows, i.e. rooms in the room list?
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   if (self.rooms)
@@ -38,10 +43,16 @@
   }
 } // numberOfRowsInSection
 
+// we want to display room number for each room in the room list
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  // dequeue the cell
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ROOM_CELL" forIndexPath:indexPath];
+  
+  // get the room from the room array
   Room *room = self.rooms[indexPath.row];
+  
+  // display its number 
   cell.textLabel.text = [NSString stringWithFormat:@"%@",room.number];
   
   return cell;

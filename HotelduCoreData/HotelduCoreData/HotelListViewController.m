@@ -31,14 +31,13 @@
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Hotel"];
   NSError *fetchError;
   
-  
   // execute the fetch request
   NSArray *results =[context executeFetchRequest:fetchRequest error:&fetchError];
   
-  if (!fetchError)
+  if (!fetchError) // if we were able to fetch something
   {
-    self.hotels = results;
-    [self.tableView reloadData];
+    self.hotels = results; // put it in the list of hotels
+    [self.tableView reloadData]; // refresh the displayed data
   } // no error
 
 } // viewDidLoad()
@@ -56,6 +55,7 @@
   }
 } // numberOfRowsInSection
 
+// how do we want to display the hotel data in the list
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HOTEL_CELL" forIndexPath:indexPath];
@@ -64,11 +64,17 @@
   return cell;
 }
 
+// if we click on a hotel in the list, show the list of its rooms by number
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  // instantiate a new roomList VC
   RoomListViewController  *roomListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ROOM_LIST"];
+  
+  // turn the set of rooms at this hotel into an array
   Hotel *hotel = self.hotels[indexPath.row];
   NSArray *rooms = [hotel.rooms allObjects];
+  
+  //pass the array of rooms to the roomList VC and push a new roomListVC onto the nav stack
   NSLog(@"Number of rooms in hotel %lu", (unsigned long)rooms.count);
   roomListVC.rooms = rooms;
   [self.navigationController pushViewController:roomListVC animated:true];

@@ -10,6 +10,6 @@
 
 @interface RoomListViewController : UIViewController
 
-@property (strong, nonatomic) NSArray *rooms;
+@property (strong, nonatomic) NSArray *rooms; // holds list of rooms at the hotel
 
 @end
