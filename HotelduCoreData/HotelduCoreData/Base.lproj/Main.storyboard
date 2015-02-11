@@ -137,16 +137,16 @@
                                     <action selector="checkAvailibilityPressed:" destination="dkz-WQ-kPE" eventType="touchUpInside" id="hID-Jm-wWH"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="u3j-8n-ZfF">
-                                <rect key="frame" x="140" y="372" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="445299652.51027501">
-                                    <!--2015-02-10 22:20:52 +0000-->
-                                </date>
-                            </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sn3-Kr-2ua">
                                 <rect key="frame" x="140" y="190" width="320" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="445299718.98018497">
                                     <!--2015-02-10 22:21:58 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="u3j-8n-ZfF">
+                                <rect key="frame" x="140" y="372" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="445299652.51027501">
+                                    <!--2015-02-10 22:20:52 +0000-->
                                 </date>
                             </datePicker>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ok6-HJ-JIa">
