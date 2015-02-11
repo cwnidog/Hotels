@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Hotel.h"
 
 @interface RoomListViewController : UIViewController
 
-@property (strong, nonatomic) NSArray *rooms; // holds list of rooms at the hotel
+@property (strong, nonatomic) Hotel *selectedHotel; // the hotel that was clicked
 
 @end

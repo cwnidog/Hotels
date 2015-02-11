@@ -16,6 +16,6 @@
 @dynamic endDate;
 @dynamic startDate;
 @dynamic room;
-@dynamic gueust;
+@dynamic guest;
 
 @end
