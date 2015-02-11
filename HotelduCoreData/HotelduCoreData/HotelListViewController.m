@@ -62,37 +62,17 @@
   Hotel *hotel = self.hotels[indexPath.row];
   cell.textLabel.text = hotel.name;
   return cell;
-}
+} // cellForRowAtIndexPath
 
-// if we click on a hotel in the list, show the list of its rooms by number
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-  // instantiate a new roomList VC
-  RoomListViewController  *roomListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ROOM_LIST"];
-  
-  // turn the set of rooms at this hotel into an array
-  Hotel *hotel = self.hotels[indexPath.row];
-  NSArray *rooms = [hotel.rooms allObjects];
-  
-  //pass the array of rooms to the roomList VC and push a new roomListVC onto the nav stack
-  NSLog(@"Number of rooms in hotel %lu", (unsigned long)rooms.count);
-  roomListVC.rooms = rooms;
-  [self.navigationController pushViewController:roomListVC animated:true];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+  if ([segue.identifier isEqualToString:@"SHOW_ROOMS"])
+  {
+    RoomListViewController *destinationVC = segue.destinationViewController;
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    Hotel *hotel = self.hotels[indexPath.row];
+    destinationVC.selectedHotel = hotel;
+  } // if segue.identifier
+} // prepareForSegue()
 
 @end

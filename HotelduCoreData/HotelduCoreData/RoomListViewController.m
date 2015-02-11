@@ -8,9 +8,11 @@
 
 #import "RoomListViewController.h"
 #import "Room.h"
+#import "AddReservationViewController.h"
 
 @interface RoomListViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic) NSArray *rooms; // holds all the rooms at the selected hotel
 
 @end
 
@@ -19,13 +21,10 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  NSLog(@"Number of rooms handed in %lu", (unsigned long)self.rooms.count);
+  self.rooms = self.selectedHotel.rooms.allObjects;
   
   // we're our own datasource
   self.tableView.dataSource = self;
-  
-  // refresh the disolayed data to show updates
-  [self.tableView reloadData];
   
 } // viewDidLoad
 
@@ -33,45 +32,29 @@
 // how many rows, i.e. rooms in the room list?
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  if (self.rooms)
-  {
-    return _rooms.count;
-  }
-  else
-  {
-    return 0;
-  }
+  return self.rooms.count;
 } // numberOfRowsInSection
 
-// we want to display room number for each room in the room list
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  // dequeue the cell
+  // get the room we're interested in
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ROOM_CELL" forIndexPath:indexPath];
-  
-  // get the room from the room array
   Room *room = self.rooms[indexPath.row];
   
-  // display its number 
-  cell.textLabel.text = [NSString stringWithFormat:@"%@",room.number];
+  // display the room number in the roomList VC
+  cell.textLabel.text = [NSString stringWithFormat:@"%@", room.number];
   
   return cell;
-} //cellForRowAtIndexPath
+} // cellForRowAtIndexPath
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([segue.identifier isEqualToString:@"SHOW_RESERVATION"])
+  {
+    AddReservationViewController *destinationVC = segue.destinationViewController;
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    Room *room = self.rooms[indexPath.row];
+    destinationVC.selectedRoom = room;
+  }
+} // prepareForSegue()
 @end
