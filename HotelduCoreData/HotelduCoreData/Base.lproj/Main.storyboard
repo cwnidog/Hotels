@@ -22,13 +22,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HOTEL_CELL" id="juj-8C-kAE">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                        <rect key="frame" x="0.0" y="278" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="juj-8C-kAE" id="jiN-qg-HOC">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Nfu-8H-q3h" kind="show" identifier="SHOW_ROOMS" id="Bmh-Gx-fB1"/>
+                                            <segue destination="iXx-Fc-GxK" kind="show" identifier="SHOW_ROOMS" id="PIA-pa-cIx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -49,7 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="841" y="954"/>
+            <point key="canvasLocation" x="875" y="1687"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="8tr-NW-fRk">
@@ -182,29 +182,29 @@
             <point key="canvasLocation" x="112" y="2511"/>
         </scene>
         <!--Room List View Controller-->
-        <scene sceneID="jw9-rG-xYM">
+        <scene sceneID="5ch-Ko-KUk">
             <objects>
-                <viewController storyboardIdentifier="ROOM_LIST" id="Nfu-8H-q3h" customClass="RoomListViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="iXx-Fc-GxK" customClass="RoomListViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zY7-Fg-EgG"/>
-                        <viewControllerLayoutGuide type="bottom" id="eck-4l-64q"/>
+                        <viewControllerLayoutGuide type="top" id="gqT-yM-rnb"/>
+                        <viewControllerLayoutGuide type="bottom" id="J0Q-zg-bDe"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gFE-f8-tOb">
+                    <view key="view" contentMode="scaleToFill" id="0wU-RJ-N6U">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="s5Z-rc-0yk">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hye-q8-uJD">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ROOM_CELL" id="0tn-8s-nfc">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ROOM_CELL" id="PzZ-52-GqK">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0tn-8s-nfc" id="MI1-rb-bKk">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PzZ-52-GqK" id="MoB-Re-6Au">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="lVc-5U-JH7" kind="show" identifier="SHOW_RESERVATION" id="dsl-Ko-E8C"/>
+                                            <segue destination="cqk-XA-afs" kind="show" identifier="SHOW_RESERVATION_LIST" id="gGk-Ew-m2K"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -212,19 +212,70 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="s5Z-rc-0yk" secondAttribute="trailing" constant="-16" id="HR7-fl-9wj"/>
-                            <constraint firstItem="eck-4l-64q" firstAttribute="top" secondItem="s5Z-rc-0yk" secondAttribute="bottom" id="M7Y-cD-ZNP"/>
-                            <constraint firstItem="s5Z-rc-0yk" firstAttribute="top" secondItem="gFE-f8-tOb" secondAttribute="topMargin" id="TlB-D8-kj2"/>
-                            <constraint firstItem="s5Z-rc-0yk" firstAttribute="leading" secondItem="gFE-f8-tOb" secondAttribute="leadingMargin" constant="-16" id="VCs-zW-OmZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hye-q8-uJD" secondAttribute="trailing" constant="-16" id="7dO-tJ-dXI"/>
+                            <constraint firstItem="J0Q-zg-bDe" firstAttribute="top" secondItem="hye-q8-uJD" secondAttribute="bottom" id="PSN-1i-b4l"/>
+                            <constraint firstItem="hye-q8-uJD" firstAttribute="leading" secondItem="0wU-RJ-N6U" secondAttribute="leadingMargin" constant="-16" id="TDT-M5-oHM"/>
+                            <constraint firstItem="hye-q8-uJD" firstAttribute="top" secondItem="gqT-yM-rnb" secondAttribute="bottom" id="gzK-Pc-lOh"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="s5Z-rc-0yk" id="dP2-NA-0jB"/>
+                        <outlet property="tableView" destination="hye-q8-uJD" id="wiz-PT-kQT"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OFf-mQ-jrM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bz9-22-ybu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="841" y="1700"/>
+            <point key="canvasLocation" x="1554" y="1686"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="cnQ-0C-fT8">
+            <objects>
+                <viewController id="cqk-XA-afs" customClass="ReservationListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Csm-hy-j2N"/>
+                        <viewControllerLayoutGuide type="bottom" id="pyy-RX-aaJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gBS-1c-vYN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Pxn-1J-50x">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RESERVATIONS_CELL" id="twW-Fs-UO6">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="twW-Fs-UO6" id="iar-Y3-RWZ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pxn-1J-50x" firstAttribute="leading" secondItem="gBS-1c-vYN" secondAttribute="leadingMargin" constant="-16" id="LaA-ed-2RC"/>
+                            <constraint firstItem="pyy-RX-aaJ" firstAttribute="top" secondItem="Pxn-1J-50x" secondAttribute="bottom" id="Pbr-Hu-P0e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pxn-1J-50x" secondAttribute="trailing" constant="-16" id="f8t-tu-efZ"/>
+                            <constraint firstItem="Pxn-1J-50x" firstAttribute="top" secondItem="gBS-1c-vYN" secondAttribute="topMargin" id="fD1-fs-T9S"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="uSu-rk-slO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Igf-vp-ZNi">
+                            <connections>
+                                <segue destination="lVc-5U-JH7" kind="presentation" identifier="ADD_RESERVATION" id="QaN-e3-Es2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Pxn-1J-50x" id="FDV-5o-7zl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFZ-9R-L8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2272" y="1686"/>
         </scene>
         <!--Add Reservation View Controller-->
         <scene sceneID="0ZE-NT-vwL">
@@ -277,7 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqS-cU-ZXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1526" y="1700"/>
+            <point key="canvasLocation" x="2272" y="2490"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GtN-p9-BG4">

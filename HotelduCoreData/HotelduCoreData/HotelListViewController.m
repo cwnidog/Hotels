@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Hotel.h"
 #import "RoomListViewController.h"
+#import "HotelService.h"
 
 @interface HotelListViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -25,14 +26,11 @@
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   
-  // get the context and set up the fetch request
-  AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-  NSManagedObjectContext *context = appDelegate.managedObjectContext;
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Hotel"];
   NSError *fetchError;
   
   // execute the fetch request
-  NSArray *results =[context executeFetchRequest:fetchRequest error:&fetchError];
+  NSArray *results = [[[HotelService sharedService] coreDataStack].managedObjectContext executeFetchRequest:fetchRequest error:&fetchError];
   
   if (!fetchError) // if we were able to fetch something
   {

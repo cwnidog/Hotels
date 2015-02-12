@@ -11,8 +11,8 @@
 #import "AddReservationViewController.h"
 
 @interface RoomListViewController () <UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic) NSArray *rooms; // holds all the rooms at the selected hotel
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -32,6 +32,7 @@
 // how many rows, i.e. rooms in the room list?
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+  NSLog(@"There are %lu rooms in the room list", (unsigned long)self.rooms.count);
   return self.rooms.count;
 } // numberOfRowsInSection
 
@@ -49,7 +50,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-  if ([segue.identifier isEqualToString:@"SHOW_RESERVATION"])
+  if ([segue.identifier isEqualToString:@"SHOW_RESERVATION_LIST"])
   {
     AddReservationViewController *destinationVC = segue.destinationViewController;
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
