@@ -75,7 +75,7 @@
 - (BOOL) removeObjectForKey:(NSString *)key
 {
   NSInteger index = [self hash:key];
-  BOOL success = false;
+  BOOL success = false; // will return true if able to find and remove an object
   
   Bucket *previousBucket;
   Bucket *bucket = self.hashArray[index];
@@ -106,12 +106,11 @@
 - (BOOL) setObject:(id)object forKey:(NSString *)key
 {
   NSInteger index = [self hash:key];
+  BOOL success = false; // will return true if could add an object
   
   Bucket *bucket = [Bucket new];
   bucket.key = key;
   bucket.data = object;
-  
-  BOOL success = false;
   
   [self removeObjectForKey:key]; // no duplicates allowed
   Bucket *head = self.hashArray[index];
