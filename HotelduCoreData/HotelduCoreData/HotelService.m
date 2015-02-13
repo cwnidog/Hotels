@@ -40,6 +40,7 @@
   self = [super init];
   if (self)
   {
+    // will only write core data to sandbox, not to persistent memory
     self.coreDataStack = [[CoreDataStack alloc] initForTesting];
     [self.coreDataStack seedDataBaseIfNeeded];
   }
@@ -57,15 +58,16 @@
   
   // get today's date, without time
   NSDate *now = [NSDate new];
+  NSLog(@"Now: %@", now);
   
   NSDateFormatter *dateFormatter = [NSDateFormatter new];
-  [dateFormatter setDateFormat:@"yyyy-mm-dd"];
+  [dateFormatter setDateFormat:@"yyyy-MM-dd"];
   NSString *dateString = [dateFormatter stringFromDate:now];
   NSDate *currDate = [dateFormatter dateFromString:dateString];
   
   NSLog(@"Start date: %@", startDate);
   NSLog(@"End date: %@", endDate);
-  NSLog(@"Now : %@", currDate);
+  NSLog(@"Current Date : %@", currDate);
   
   // if the start date is the same as or before the end date, not valid
   if ([startDate compare:endDate] != NSOrderedAscending)

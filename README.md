@@ -22,3 +22,7 @@ anywhere in that range.
 Create a HotelService class that should abstract away your business logic (booking reservations, checking availability, etc)
 * Write unit tests for your HotelServiceMethods
 * Implement a fetchedresultscontroller in your reservation list view controller.
+
+##Hash
+------
+* Create an implementation of Hash Table.

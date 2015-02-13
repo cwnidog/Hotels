@@ -28,6 +28,8 @@
 		2F8F42211A8AABA500787B51 /* AddReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8F42201A8AABA500787B51 /* AddReservationViewController.m */; };
 		2F8F422C1A8AB53200787B51 /* Guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8F422B1A8AB53200787B51 /* Guest.m */; };
 		2F8F422F1A8ABB0600787B51 /* AvailibilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8F422E1A8ABB0600787B51 /* AvailibilityViewController.m */; };
+		2FEB7E141A8D6B7300A62C6E /* Bucket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB7E131A8D6B7300A62C6E /* Bucket.m */; };
+		2FEB7E171A8D6C4800A62C6E /* HashTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB7E161A8D6C4800A62C6E /* HashTable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,10 @@
 		2F8F422B1A8AB53200787B51 /* Guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guest.m; sourceTree = "<group>"; };
 		2F8F422D1A8ABB0600787B51 /* AvailibilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailibilityViewController.h; sourceTree = "<group>"; };
 		2F8F422E1A8ABB0600787B51 /* AvailibilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailibilityViewController.m; sourceTree = "<group>"; };
+		2FEB7E121A8D6B7300A62C6E /* Bucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bucket.h; sourceTree = "<group>"; };
+		2FEB7E131A8D6B7300A62C6E /* Bucket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bucket.m; sourceTree = "<group>"; };
+		2FEB7E151A8D6C4800A62C6E /* HashTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashTable.h; sourceTree = "<group>"; };
+		2FEB7E161A8D6C4800A62C6E /* HashTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HashTable.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,10 @@
 				2F195F0C1A8953C400177D18 /* Room.h */,
 				2F195F0D1A8953C400177D18 /* Room.m */,
 				2F195F1C1A895D7700177D18 /* seed.json */,
+				2FEB7E121A8D6B7300A62C6E /* Bucket.h */,
+				2FEB7E131A8D6B7300A62C6E /* Bucket.m */,
+				2FEB7E151A8D6C4800A62C6E /* HashTable.h */,
+				2FEB7E161A8D6C4800A62C6E /* HashTable.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -309,10 +319,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F195F0E1A8953C400177D18 /* Room.m in Sources */,
+				2FEB7E141A8D6B7300A62C6E /* Bucket.m in Sources */,
 				2F195EE61A894F6E00177D18 /* AppDelegate.m in Sources */,
 				2F0596D41A8BFB9000AC2AFB /* CoreDataStack.m in Sources */,
 				2F195F141A8953C400177D18 /* Reservation.m in Sources */,
 				2F195F261A89832D00177D18 /* MenuTableViewController.m in Sources */,
+				2FEB7E171A8D6C4800A62C6E /* HashTable.m in Sources */,
 				2F195EE31A894F6E00177D18 /* main.m in Sources */,
 				2F8F422F1A8ABB0600787B51 /* AvailibilityViewController.m in Sources */,
 				2F8F42211A8AABA500787B51 /* AddReservationViewController.m in Sources */,
