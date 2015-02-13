@@ -72,9 +72,10 @@
   return nil; // didn't find the riht bucket
 } // objectForKey()
 
-- (void) removeObjectForKey:(NSString *)key
+- (BOOL) removeObjectForKey:(NSString *)key
 {
   NSInteger index = [self hash:key];
+  BOOL success = false;
   
   Bucket *previousBucket;
   Bucket *bucket = self.hashArray[index];
@@ -93,16 +94,16 @@
       {
         previousBucket.next = bucket.next;
       }
-      return;
+      success = true;
     } // if key
     
     previousBucket = bucket;
     bucket = bucket.next;
-    
   } // while bucket
+  return  success;
 } // removeObjectForKey()
 
-- (void) setObject:(id)object forKey:(NSString *)key
+- (BOOL) setObject:(id)object forKey:(NSString *)key
 {
   NSInteger index = [self hash:key];
   
@@ -110,19 +111,24 @@
   bucket.key = key;
   bucket.data = object;
   
+  BOOL success = false;
+  
   [self removeObjectForKey:key]; // no duplicates allowed
   Bucket *head = self.hashArray[index];
   
   if (!head) // empty bucket list
   {
     self.hashArray[index] = bucket;
+    success = true;
   }
   
   else // bucket list isn't empty
   {
     bucket.next = head;
     self.hashArray[index] = bucket;
+    success = true;
   }
+  return success;
 } // setObject()
 
 @end

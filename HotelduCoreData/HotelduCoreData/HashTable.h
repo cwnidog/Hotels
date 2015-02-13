@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface HashTable : NSObject
-- (void) setObject:(id)object forKey:(NSString*)key;
-- (void) removeObjectForKey:(NSString *)key;
+- (BOOL) setObject:(id)object forKey:(NSString*)key;
+- (BOOL) removeObjectForKey:(NSString *)key;
 - (id) objectForKey:(NSString *)key;
 - (instancetype) initWithSize:(NSInteger)size;
 @end
