@@ -9,6 +9,7 @@
 #import "AvailibilityViewController.h"
 #import "AppDelegate.h"
 #import "Reservation.h"
+#import "HotelService.h"
 
 @interface AvailibilityViewController ()
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
@@ -31,6 +32,8 @@
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Room"];
   
   NSString *selectedHotel = [self.hotelSegmentedControl titleForSegmentAtIndex:self.hotelSegmentedControl.selectedSegmentIndex];
+  self.context = [[HotelService sharedService] coreDataStack].managedObjectContext;
+  
   
   // fetch all the rooms with a hotel ame that matches the selected hotel
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.hotel.name MATCHES %@", selectedHotel];
