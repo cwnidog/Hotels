@@ -30,7 +30,8 @@
     // initialize each element in the array to nil
     for (int i = 0; i <self.size; i++)
     {
-      self.hashArray[i] = nil;
+      Bucket *bucket = [Bucket new];
+      [self.hashArray addObject:bucket];
     }
   } // if self
   return self;
@@ -51,14 +52,12 @@
 
 - (id) objectForKey:(NSString *)key
 {
-  // hash the key to get the hashArray index
   NSInteger index = [self hash:key];
-  Bucket *bucket = self.hashArray[index]; // may be nil
+  Bucket *bucket = self.hashArray[index];
   
-  // traverse the bucket list until we find the one that matches - or to the end
   while (bucket)
   {
-    if ([bucket.key isEqualToString:key]) // found the right bucket
+    if ([bucket.key isEqualToString:key])
     {
       return bucket.data;
     }
@@ -68,60 +67,67 @@
       bucket = bucket.next;
     }
   } // while bucket
-  
-  return nil; // didn't find the riht bucket
+  return nil; // bucket with key not found
 } // objectForKey()
 
 - (BOOL) removeObjectForKey:(NSString *)key
 {
   NSInteger index = [self hash:key];
-  BOOL success = false; // will return true if able to find and remove an object
-  
-  Bucket *previousBucket;
   Bucket *bucket = self.hashArray[index];
+  Bucket *previousBucket;
+  BOOL success = false;
   
   while (bucket)
   {
     if ([key isEqualToString:bucket.key])
     {
-      if (!previousBucket) // at head of array
+      if (!previousBucket)
       {
         Bucket *nextBucket = bucket.next;
+        if (!nextBucket)
+        {
+          nextBucket = [Bucket new];
+        }
         self.hashArray[index] = nextBucket;
-      }
+      } // !previous bucket
       
       else
       {
         previousBucket.next = bucket.next;
       }
       success = true;
+      return success;
     } // if key
     
     previousBucket = bucket;
     bucket = bucket.next;
   } // while bucket
-  return  success;
+  
+  if (bucket == nil) {
+    return false;
+  }
+  return success;
 } // removeObjectForKey()
 
 - (BOOL) setObject:(id)object forKey:(NSString *)key
 {
   NSInteger index = [self hash:key];
-  BOOL success = false; // will return true if could add an object
-  
   Bucket *bucket = [Bucket new];
   bucket.key = key;
   bucket.data = object;
   
-  [self removeObjectForKey:key]; // no duplicates allowed
+  BOOL success = false;
+  
+  [self removeObjectForKey:key];
   Bucket *head = self.hashArray[index];
   
-  if (!head) // empty bucket list
+  if (!head.data) // just an empty node, so list is empty
   {
     self.hashArray[index] = bucket;
     success = true;
   }
   
-  else // bucket list isn't empty
+  else
   {
     bucket.next = head;
     self.hashArray[index] = bucket;
